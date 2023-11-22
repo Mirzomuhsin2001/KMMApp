@@ -1,10 +1,18 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("maven-publish")
 }
+
+group = "com.muhsin.mysharedlib"
+version = "1.0.0"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+    android {
+        publishLibraryVariants("release", "debug")
+        publishLibraryVariantsGroupedByFlavor = true
+    }
     targetHierarchy.default()
 
     androidTarget {
@@ -34,6 +42,18 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
+            }
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            setUrl("https://maven.pkg.github.com/Mirzomuhsin2001/KMMApp")
+            credentials {
+                username = "Mirzomuhsin2001"
+                password = "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"
             }
         }
     }
