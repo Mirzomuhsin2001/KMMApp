@@ -4,14 +4,14 @@ plugins {
     id("maven-publish")
 }
 
-//group = "com.muhsin.mysharedlib"
-//version = "1.0.1"
+group = "com.muhsin.mysharedlib"
+version = "1.0.3"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     android {
         publishLibraryVariants("release", "debug")
-        publishLibraryVariantsGroupedByFlavor = true
+//        publishLibraryVariantsGroupedByFlavor = true
     }
     targetHierarchy.default()
 
@@ -52,7 +52,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["kotlin"])
             groupId = "com.muhsin.mysharedlib"
-            version = "1.0.2"
+            version = "1.0.3"
             artifactId = "shared"
             artifact("$buildDir/outputs/aar/shared-debug.aar")
         }
