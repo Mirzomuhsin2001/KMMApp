@@ -4,8 +4,8 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.muhsin.mysharedlib"
-version = "1.0.3"
+//group = "com.muhsin.mysharedlib"
+//version = "1.0.3"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
@@ -52,7 +52,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["kotlin"])
             groupId = "com.muhsin.mysharedlib"
-            version = "1.0.3"
+            version = "1.0.4"
             artifactId = "shared"
             artifact("$buildDir/outputs/aar/shared-debug.aar")
         }
