@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.muhsin.mysharedlib"
-version = "1.0.0"
+version = "1.0.1"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
