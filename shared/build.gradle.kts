@@ -4,8 +4,8 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.muhsin.mysharedlib"
-version = "1.0.1"
+//group = "com.muhsin.mysharedlib"
+//version = "1.0.1"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
@@ -48,6 +48,15 @@ kotlin {
 }
 
 publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["kotlin"])
+            groupId = "com.muhsin.mysharedlib"
+            version = "1.0.2"
+            artifactId = "shared"
+            artifact("$buildDir/outputs/aar/shared-debug.aar")
+        }
+    }
     repositories {
         maven {
             setUrl("https://maven.pkg.github.com/Mirzomuhsin2001/KMMApp")
