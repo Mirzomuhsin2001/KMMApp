@@ -5,13 +5,12 @@ plugins {
 }
 
 group = "com.muhsin.mysharedlib"
-version = "1.0.5"
+version = "1.0.0"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     android {
         publishLibraryVariants("release", "debug")
-//        publishLibraryVariantsGroupedByFlavor = true
     }
     targetHierarchy.default()
 
@@ -34,16 +33,15 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                //put your multiplatform dependencies here
-            }
-        }
+        val commonMain by getting
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
             }
         }
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
     }
 }
 
@@ -53,7 +51,7 @@ publishing {
             setUrl("https://maven.pkg.github.com/Mirzomuhsin2001/KMMApp")
             credentials {
                 username = "Mirzomuhsin2001"
-                password = "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"
+                password = "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"
             }
         }
     }
@@ -61,7 +59,7 @@ publishing {
 
 android {
     namespace = "com.example.kmmapp"
-    compileSdk = 34
+    compileSdk = 33
     defaultConfig {
         minSdk = 21
     }

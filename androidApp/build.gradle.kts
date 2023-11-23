@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.example.kmmapp.android"
-    compileSdk = 34
+    compileSdk = 33
     defaultConfig {
         applicationId = "com.example.kmmapp.android"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
